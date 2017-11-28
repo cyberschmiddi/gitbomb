@@ -1,0 +1,29 @@
+#!/bin/bash
+
+BASEDIR=$(dirname "$0")
+source "$BASEDIR/subcommands/functions.sh"
+source "$BASEDIR/subcommands/procedures.sh"
+
+
+if [ -z "$1" ]
+then
+	echo "No arguments passed"
+	exit 1
+fi
+
+
+selection="$1"
+shift;
+
+
+case "$selection" in
+
+"from-scratch") proc_from_scratch "$@";;
+"put-in-branch") proc_put_in_branch "$@";;
+"--help") proc_helptext "$@";;
+
+esac
+
+
+
+
